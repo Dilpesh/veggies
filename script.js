@@ -2,7 +2,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const items = [
         { name: "Potato", price: 1.5 },
         { name: "Onion", price: 2 },
-        { name: "Tomato", price: 3 }
+        { name: "Tomato", price: 3 },
+        { name: "Tori", price: 1.8 },
+        { name: "Loki", price: 2.5 },
+        { name: "Palak", price: 1.2 },
+        { name: "Methi", price: 1.3 },
+        { name: "Kheera", price: 2.3 },
+        { name: "Beetroot", price: 1.7 },
+        { name: "Beans", price: 2.2 }
     ];
 
     const itemList = document.getElementById("item-list");
@@ -15,17 +22,40 @@ document.addEventListener("DOMContentLoaded", function() {
         nameLabel.textContent = item.name;
         div.appendChild(nameLabel);
 
+        const quantityContainer = document.createElement("div");
+        quantityContainer.classList.add("quantity-container");
+
+        const decreaseBtn = document.createElement("button");
+        decreaseBtn.textContent = "-";
+        decreaseBtn.addEventListener("click", function() {
+            const quantityInput = quantityContainer.querySelector("input");
+            let quantity = parseInt(quantityInput.value);
+            quantity = quantity > 0 ? quantity - 1 : 0;
+            quantityInput.value = quantity;
+        });
+        quantityContainer.appendChild(decreaseBtn);
+
         const quantityInput = document.createElement("input");
         quantityInput.type = "number";
         quantityInput.min = 0;
         quantityInput.value = 0;
-        div.appendChild(quantityInput);
+        quantityContainer.appendChild(quantityInput);
 
+        const increaseBtn = document.createElement("button");
+        increaseBtn.textContent = "+";
+        increaseBtn.addEventListener("click", function() {
+            const quantityInput = quantityContainer.querySelector("input");
+            let quantity = parseInt(quantityInput.value);
+            quantityInput.value = quantity + 1;
+        });
+        quantityContainer.appendChild(increaseBtn);
+
+        div.appendChild(quantityContainer);
         itemList.appendChild(div);
     });
 
-    const generateCartBtn = document.getElementById("generate-cart");
-    generateCartBtn.addEventListener("click", function() {
+    const placeOrderBtn = document.getElementById("place-order");
+    placeOrderBtn.addEventListener("click", function() {
         const cart = [];
 
         document.querySelectorAll(".item").forEach((itemDiv, index) => {
@@ -42,15 +72,14 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(JSON.stringify(cart, null, 2));
         // You can send this JSON cart to a backend or use it as needed
 
-        // Generate WhatsApp link
-        const whatsappLink = document.getElementById("whatsapp-link");
+        // Generate WhatsApp link and open chat
         const whatsappNumber = "+919243191040"; // Change this to the desired WhatsApp number
         const message = encodeURIComponent(`Order Details:\n${formatCart(cart)}`);
-        alert(message)
-        whatsappLink.href = `https://wa.me/${whatsappNumber}?text=${message}`;
+        const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
+        window.open(whatsappLink, "_blank");
     });
 
     function formatCart(cart) {
-        return cart.map(item => `${item.name}: ${item.quantity}`).join("\n");
+        return cart.map(item => `${item.name}: ${item.quantity} kg`).join("\n");
     }
 });
