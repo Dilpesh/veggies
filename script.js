@@ -93,6 +93,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function formatCart(cart) {
-        return cart.map(item => `${item.name}: ${item.quantity} kg`).join("\n");
+        return cart.map(item => `${item.name}: ${item.quantity}`).join("\n");
     }
 });
