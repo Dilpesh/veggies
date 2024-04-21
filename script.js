@@ -1,15 +1,28 @@
 document.addEventListener("DOMContentLoaded", function() {
     const items = [
-        { name: "Potato", price: 1.5 },
-        { name: "Onion", price: 2 },
-        { name: "Tomato", price: 3 },
-        { name: "Tori", price: 1.8 },
-        { name: "Loki", price: 2.5 },
+        { name: "Potato (kg)", price: 1.5 },
+        { name: "Onion (kg)", price: 2 },
+        { name: "Tomato (kg)", price: 3 },
+        { name: "Tori (pc)", price: 1.8 },
+        { name: "Loki (pc)", price: 2.5 },
         { name: "Palak", price: 1.2 },
         { name: "Methi", price: 1.3 },
-        { name: "Kheera", price: 2.3 },
-        { name: "Beetroot", price: 1.7 },
-        { name: "Beans", price: 2.2 }
+        { name: "Kheera (pc)", price: 2.3 },
+        { name: "Beetroot (pc)", price: 1.7 },
+        { name: "Beans (gm)", price: 2.2 },
+        { name: "chiku (pc)", price: 2.2 },
+        { name: "cabbage (pc)", price: 2.2 },
+        { name: "grapes (gm)", price: 2.2 },
+        { name: "ginger (gm)", price: 2.2 },
+        { name: "garlic (pc)", price: 2.2 },
+        { name: "bhindi (gm)", price: 2.2 },
+        { name: "big banana (pc)", price: 2.2 },
+        { name: "shimla mirch (pc)", price: 2.2 },
+        { name: "shimla apple (pc)", price: 2.2 },
+        { name: "local carrot (gm)", price: 2.2 },
+        { name: "green chilli (gm)", price: 2.2 },
+        { name: "muskmelon (pc)", price: 2.2 },
+        { name: "karela (gm)", price: 2.2 }
     ];
 
     const itemList = document.getElementById("item-list");
