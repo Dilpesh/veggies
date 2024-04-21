@@ -11,6 +11,7 @@ h1 {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 .item label {
@@ -20,10 +21,21 @@ h1 {
 .item .quantity-container {
     display: flex;
     align-items: center;
-    margin-left: 10px; /* Adjust this margin as needed */
+    margin-left: 5px; /* Adjust this margin as needed */
 }
 
 .item .quantity-container button {
     margin: 0 5px;
     padding: 5px;
+}
+
+.item .quantity-container input {
+    width: 50px;
+}
+
+ #place-order {
+    font-size: 16px; /* Increase the font size as needed */
+    padding: 10px 20px; /* Adjust the padding to increase button size */
+    display: block;
+    margin: 0 auto;
 }

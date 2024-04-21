@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const nameLabel = document.createElement("label");
         nameLabel.textContent = item.name;
         div.appendChild(nameLabel);
-
+        
         const quantityContainer = document.createElement("div");
         quantityContainer.classList.add("quantity-container");
 
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
         quantityInput.min = 0;
         quantityInput.value = 0;
         quantityContainer.appendChild(quantityInput);
-
+       
         const increaseBtn = document.createElement("button");
         increaseBtn.textContent = "+";
         increaseBtn.addEventListener("click", function() {
